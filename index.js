@@ -1,5 +1,11 @@
+
+const express = require('express');
+const fs = require('fs');
+const createError = require('http-errors');
 const qrcode = require('qrcode-terminal');
 const { Client} = require('whatsapp-web.js');
+
+const app = express();
 // Path where the session data will be stored
 //const SESSION_FILE_PATH = './session.json';
 
@@ -9,10 +15,17 @@ let sessionData;
 /*(if(fs.existsSync(SESSION_FILE_PATH)) {
     sessionData = require(SESSION_FILE_PATH);
 }*/
-const client = new Client();
+const client = new Client({
+    puppeteer: { headless: false ,
+       args:['--no-sandbox', '--disable-setuid-sandbox'] } // Make headless true or remove to run browser in background
+   
+  });
 
 client.on('qr', qr => {
     qrcode.generate(qr, {small: true});
+    app.get('/getqr', (req, res, next) => {
+        res.send({ qr });
+      });
 });
 
 
@@ -20,6 +33,9 @@ client.on('qr', qr => {
 client.on('ready', () => {
     console.log('Client is ready!');
 });
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`🚀 @ http://localhost:${PORT}`));
 
 client.on('authenticated', (session) => {   
     console.log(session); 
