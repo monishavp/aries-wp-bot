@@ -1,4 +1,3 @@
-
 const express = require('express');
 const fs = require('fs');
 const createError = require('http-errors');
@@ -49,16 +48,21 @@ client.on('message', message => {
     console.log(message.from+":"+message.body);
     let body = message.body
     body = body.trim()
+    body = body.toLowerCase()
+    let data = "Thank you for contacting Aries Group, to make it easier! let us know which of the below available services you are looking for.?"
+    data += "\r\nFor our services details, type *Services*"
+    data += "\r\n For our Training details, Type *Training*"
+    data += "\r\nFor career related inquiry, Type *Career*"
 	if(body === 'Hi' ||  body === 'hi' || body === 'Hai' ||  body === 'hai') {
-		message.reply('hi, How are you?, How Can I help You');
+		message.reply('hi, How are you?, How Can I help You\r\n'+data);
 	}
     if(body === 'Hello') {
-		message.reply('Yes,How Can I help You?');
+		message.reply('Yes,How Can I help You?\r\n'+data);
 	}
     if(body == 'Hello, I have visited your website and I need to know more about your services and features.') {
-		message.reply("Thank you for contacting Aries Group, to make it easier! let us know which of the below available services you are looking for.?\r\nFor our services details, type *#S*\r\n For our Training details, Type *#T* \r\nFor career related inquiry, Type *#C*");
+		message.reply(data);
 	}
-    if(body === '#S' || body === '#s') {
+    if(body === 'services' || body === 's') {
         let strData = 'Which services you would like to know more details! Type the number\r\n';
          strData += '*1* Naval Architecture & Engineering Consultancy\r\n';
          strData += '*2* Project Management\r\n';
@@ -81,26 +85,26 @@ client.on('message', message => {
 	}
 
     if(body==='1'||body==='2' || body==='8' || body==='9' || body==='10') {
-        strData = 'Thank you for your interest, our representative will revert back to you soon, alternatively you can reach him in below mentioned email ID\r\n'
+        strData = 'Thank you for your interest, please share your email ID for further communication, alternatively you may reach our team in below email ID\r\n'
 
-        strData += 'Nidhin K V (General Manager)\r\n *offshoredesign@ariesgroup.ae*'
+        strData += '*enquiry@ariesmar.com*'
         message.reply(strData);
 
     }
     
     if(body==='3' || body==='4' || body==='5' || body==='6' || body==='7'|| body==='11' || body==='12' || body==='13' || body==='14'|| body==='15' || body==='16' || body==='17') {
-        strData = 'Thank you for your interest, our representative will revert back to you soon, alternatively you can reach him in below mentioned email ID\r\n'
+        strData = 'Thank you for your interest, please share your email ID for further communication, alternatively you may reach our team in below email ID\r\n'
 
-        strData += '*inspectiontechsupport@ariesmar.com*'
+        strData += '*enquiry@ariesmar.com*'
         message.reply(strData);
     }
-    if(body === '#T' || body === '#t') {
-        strData = 'Thank you for your interest, our representative will revert back to you soon, alternatively you can reach him in below mentioned \r\n'
-        strData += '*training@ariesmar.com*'
+    if(body === 'training' || body === 't' || body === 'trai') {
+        strData = 'Thank you for your interest, you may reach our team in below email ID with your details requirements\r\n'
+        strData += '*aimri@ariesgroup.ae*'
         message.reply(strData);
     }
-    if(body === '#C' || body === '#c') {
-        strData = 'Thank you for your interest, please email your CV to below mentioned email ID\r\n'
+    if(body === 'career' || body === 'car') {
+        strData = 'Thank you for your interest to work Aries Group, please email your CV to below mentioned email ID\r\n'
         strData += '*career@ariesgroup.ae*'
         message.reply(strData);
     }
