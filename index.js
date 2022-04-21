@@ -62,7 +62,7 @@ client.on('message', message => {
     if(body == 'Hello, I have visited your website and I need to know more about your services and features.') {
 		message.reply(data);
 	}
-    if(body === 'services' || body === 's') {
+    if(body === 'service' || body === 'services' || body === 's') {
         let strData = 'Which services you would like to know more details! Type the number\r\n';
          strData += '*1* Naval Architecture & Engineering Consultancy\r\n';
          strData += '*2* Project Management\r\n';
@@ -103,9 +103,9 @@ client.on('message', message => {
         strData += '*aimri@ariesgroup.ae*'
         message.reply(strData);
     }
-    if(body === 'career' || body === 'car') {
+    if(body === 'careers' ||body === 'career' || body === 'car') {
         strData = 'Thank you for your interest to work Aries Group, please email your CV to below mentioned email ID\r\n'
-        strData += '*career@ariesgroup.ae*'
+        strData += '*careers@ariesgroup.ae*'
         message.reply(strData);
     }
 });
