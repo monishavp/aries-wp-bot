@@ -52,7 +52,7 @@ client.on('message', message => {
     let data = "Thank you for contacting Aries Group, to make it easier! let us know which of the below available services you are looking for.?"
     data += "\r\nFor our services details, type *Services*"
     data += "\r\n For our Training details, Type *Training*"
-    data += "\r\nFor career related inquiry, Type *Career*"
+    data += "\r\nFor career related inquiry, Type *Careers*"
 	if(body === 'Hi' ||  body === 'hi' || body === 'Hai' ||  body === 'hai') {
 		message.reply('hi, How are you?, How Can I help You\r\n'+data);
 	}
