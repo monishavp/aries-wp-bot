@@ -22,9 +22,9 @@ const client = new Client({
 
 client.on('qr', qr => {
     qrcode.generate(qr, {small: true});
-    app.get('/getqr', (req, res, next) => {
+    /*app.get('/getqr', (req, res, next) => {
         res.send({ qr });
-      });
+      });*/
 });
 
 
@@ -33,8 +33,8 @@ client.on('ready', () => {
     console.log('Client is ready!');
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 @ http://localhost:${PORT}`));
+//const PORT = process.env.PORT || 5000;
+//app.listen(PORT, () => console.log(`🚀 @ http://localhost:${PORT}`));
 
 client.on('authenticated', (session) => {   
     console.log(session); 
