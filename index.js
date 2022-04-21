@@ -54,10 +54,10 @@ client.on('message', message => {
     data += "\r\n For our Training details, Type *Training*"
     data += "\r\nFor career related inquiry, Type *Careers*"
 	if(body === 'Hi' ||  body === 'hi' || body === 'Hai' ||  body === 'hai') {
-		message.reply('hi, How are you?, How Can I help You\r\n'+data);
+		message.reply('Hi, How are you?\r\n'+data);
 	}
     if(body === 'Hello') {
-		message.reply('Yes,How Can I help You?\r\n'+data);
+		message.reply('Hi, How are you?\r\n'+data);
 	}
     if(body == 'Hello, I have visited your website and I need to know more about your services and features.') {
 		message.reply(data);
