@@ -15,7 +15,7 @@ let sessionData;
     sessionData = require(SESSION_FILE_PATH);
 }*/
 const client = new Client({
-  puppeteer: { headless: false
+  puppeteer: { headless: false,
        args:['--no-sandbox', '--disable-setuid-sandbox'] } // Make headless true or remove to run browser in background
 	     
   });
