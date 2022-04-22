@@ -60,7 +60,7 @@ client.on('message', message => {
     if(body === 'Hello') {
 		message.reply('Hi, How are you?\r\n'+data);
 	}
-    if(body == 'Hello, I have visited your website and I need to know more about your services and features.') {
+    if(body === 'Hello, I have visited your website and I need to know more about your services and features.') {
 		message.reply(data);
 	}
     if(body === 'service' || body === 'services' || body === 's') {
